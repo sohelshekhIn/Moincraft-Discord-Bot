@@ -21,7 +21,7 @@ async def on_ready():
 @bot.command(name="start")
 async def start(ctx):
     await ctx.send("Starting server")
-    aternos = Client.from_credentials("username", "password)
+    aternos = Client.from_credentials("username", "password")
     servs = aternos.list_servers()
     myserv = servs[0]
     try:
@@ -32,7 +32,7 @@ async def start(ctx):
     while serverStatus != "online":
         #logging out and relogging to get updated status of all servers
         aternos.logout()
-        aternos = Client.from_credentials("username", "password)
+        aternos = Client.from_credentials("username", "password")
         servs = aternos.list_servers()
         myserv = servs[0]
         # offline, loading, preparing
@@ -43,7 +43,7 @@ async def start(ctx):
 
 @bot.command(name="status")
 async def status(ctx):
-    aternos = Client.from_credentials('theunseenagent', 'theunseenagent')
+    aternos = Client.from_credentials('username', 'password')
     servs = aternos.list_servers()
     myserv = servs[0]
     await ctx.send(f"Server is {myserv.status}")
